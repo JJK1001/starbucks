@@ -1,0 +1,414 @@
+<html lang="ko"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">  
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Generator" content="EditPlus®">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <link rel="shortcut icon" href="/static/user/images/common/favicon.ico" type="image/x-icon">
+    <title>CJ Campus</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/user/css/webfonts.css">
+    <link rel="stylesheet" href="/static/user/css/circle.css">
+    <link rel="stylesheet" href="/static/user/css/lightslider.css">
+    <link rel="stylesheet" href="/static/user/css/common.css">
+    <link rel="stylesheet" href="/static/user/css/cjcampus_ui.css">
+    <link rel="stylesheet" href="/static/user/css/cjcampus_content.css">
+    
+    <!-- SCRIPT  -->
+    <script type="text/javascript" src="/static/user/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/static/user/js/lightslider.min.js"></script>
+    <script type="text/javascript" src="/static/user/js/common_module.js"></script>
+    <script type="text/javascript" src="/static/user/js/vendor/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+</head>
+<body oncontextmenu="return false;">		
+
+         <div id="loginboxWrap">
+    
+        <div class="container login">
+            <section class="content_login">
+                <div class="inner">
+                    <h1 class="logo_cjcampus">
+                        <span class="ir">CJ Campus</span>
+                    </h1>
+                    <h2 class="tit_s38cBlack2FB">LOGIN</h2>
+
+                    <div class="login_form" style="margin-top:30px;">
+                        <form name="loginform" id="loginform" action="/userLoginExecute.do" method="post" class="loginform">
+                            <input type="hidden" name="p_userToken" id="p_userToken" value="">
+                            <input type="hidden" name="p_userAppVer" id="p_userAppVer" value="">
+                            <input type="hidden" name="p_userDevice" id="p_userDevice" value="">
+                            <input type="hidden" name="p_userPushyn" id="p_userPushyn" value="">
+                        
+                            <span class="txt_s16cBlueFB">Set the system Language</span>
+                            <div class="info_check" style="margin-top:5px;">
+                                <label class="inp_radio">
+                                    <input type="radio" name="login_lang" value="ko" onclick="changeLanguage('ko');return false;" checked="">
+                                    <i class="icon_radio"></i>
+                                    <span class="s14cBlck">Korean</span>
+                                </label>
+                                
+                                <label class="inp_radio">
+                                    <input type="radio" name="login_lang" value="en" onclick="changeLanguage('en');return false;">
+                                    <i class="icon_radio"></i>
+                                    <span class="s14cBlck">English</span>
+                                </label>
+                                
+                                <label class="inp_radio">
+                                    <input type="radio" name="login_lang" value="zh" onclick="changeLanguage('zh');return false;">
+                                    <i class="icon_radio"></i>
+                                    <span class="s14cBlck">Chinese</span>
+                                </label>
+                            </div>
+                            
+                            <div class="input_box" style="margin-top:20px;">
+                                <input type="text" placeholder="ID" name="p_login_id" id="p_login_id" class="txt_s16cBlueFB" autocomplete="off">
+                            </div>
+                            <span class="txt_s12cGray" style="display:block;text-align:right;">CJ World 아이디와 동일합니다.<br>Same ID with CJ World</span>
+                            <div class="input_box" style="margin-top:20px;">
+                                <input type="password" placeholder="PASSWORD" name="p_pwd" id="p_pwd" class="txt_s16cBlueFB" autocomplete="off">
+                            </div>
+                            <span class="txt_s12cGray" style="display:block;text-align:right;">최초 패스워드는 생년월일입니다.<br>Default PW is your birthday(YYYYMMDD)</span>
+                            
+                            <div class="info_check">
+                                <label class="inp_chk">
+                                    <input type="checkbox" id="idSaveCheck" name="idSaveCheck">
+                                    <i class="icon_chk"></i>
+                                    <span class="txt_s12cBlackFB">아이디 저장/Keep ID</span>
+                                </label>
+        
+                                <div class="find_info" style="border:1px solid #3f67f1;padding:0 9px">
+                                    <a href="#" class="txt_s12cBlackFB" onclick="whenPwdSearch(); return false;" style="line-height:25px;">비밀번호 찾기/Forgot PW</a>
+                                </div>
+                            </div>
+                            <div class="info_check fingerprint">
+                                <label class="inp_chk">
+                                    <input type="checkbox" name="bioSaveCheck" id="bioSaveCheck" value="Y">
+                                    <i class="icon_chk"></i>
+                                    <span class="txt_s12cBlack">항상 생체인식 로그인/Biometric Login Always</span>
+                                </label>
+                            </div>
+    
+                            <div class="btn_group" style="margin-top:30px;">
+                                <a href="#" onclick="whenLogin(); return false;">
+                                    <button type="button" class="btn_blueh50">
+                                        <span class="txt_s16">LOGIN</span>
+                                    </button>
+                                </a>
+                                <p class="txt_s12cRed" style="text-align:left;">
+                                    </p>
+                            </div>
+                            <div class="txt_s12cGray">
+                                CJ WORLD 계정이 없는 경우, 관리자의 초대 메일을 통해 회원가입을 진행할 수 있습니다. 회원가입 후 로그인 해주세요.
+                            </div>
+                            <div class="txt_s12cGray" style="margin-top:10px;">
+                                If you do not have a CJ World Account, you could sign up for CJ Campus membership after receiving the administrator`s invitation Email. Please contact your HR manager for further information.
+                            </div>
+                            <span class="txt_s14cBlckFB">지원센터  <span style="display:inline-block;vertical-align:top;">: 1566 - 2219(Korean Only)<br>: cjcampus@cj.net(English Available)</span></span>
+                            
+                        </form>
+                    </div>
+                    
+                </div>
+
+            </section>
+            <div style="text-align:center;">
+                <div style="display:inline-block;text-align:left;padding:0 20px;">
+                    <span class="txtIcon_s14cGGray_guide"><span class="txt_s14cBlckFB">본 시스템은 CJ그룹 임직원에 한하여 사용하실 수 있습니다. 불법적인 접근 및 사용 시 관련 법규에 의해 처벌될 수 있습니다.</span></span><br>
+                    <span class="txtIcon_s14cGGray_guide"><span class="txt_s14cBlckFB">This system can only be used by CJ Employees. Illegal access can be punished by relevant laws and regulations.</span></span>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+    <script type="text/javascript">
+    
+        //jQuery Ready
+        $(document).ready(function(){
+            
+            // 저장된 쿠키값을 가져와서 ID 칸에 넣어준다. 없으면 공백으로 들어감.
+            var key = getCookie("key");
+            $("#p_login_id").val(key);
+            
+            if($("#p_login_id").val() != ""){ // 그 전에 ID를 저장해서 처음 페이지 로딩 시, 입력 칸에 저장된 ID가 표시된 상태라면,
+                $("#idSaveCheck").attr("checked", true); // ID 저장하기를 체크 상태로 두기.
+            }
+            
+            $("#idSaveCheck").change(function(){ // 체크박스에 변화가 있다면,
+                if($("#idSaveCheck").is(":checked")){ // ID 저장하기 체크했을 때,
+                    setCookie("key", $("#p_login_id").val(), 7); // 7일 동안 쿠키 보관
+                }else{ // ID 저장하기 체크 해제 시,
+                    deleteCookie("key");
+                }
+            });
+            
+            //생체인증 저장하기 체크시
+            $("#bioSaveCheck").change(function(){
+                if(!$("#bioSaveCheck").is(":checked")){ 
+                    fnCmdBioCheck("");
+                }
+            });
+            
+            // ID 저장하기를 체크한 상태에서 ID를 입력하는 경우, 이럴 때도 쿠키 저장.
+            $("#p_login_id").keyup(function(){ // ID 입력 칸에 ID를 입력할 때,
+                if($("#idSaveCheck").is(":checked")){ // ID 저장하기를 체크한 상태라면,
+                    setCookie("key", $("#p_login_id").val(), 7); // 7일 동안 쿠키 보관
+                }
+            });
+         
+            //로그인폼 엔터키처리
+            $("#loginform input").keypress(function(e){
+                if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+                    whenLogin();
+                }
+            });
+            
+            //토큰값 획득
+            fnCmdGetToken();
+        });
+        
+        
+        //토큰값 획득
+         function fnCmdGetToken(){
+            
+            var _jsondata;
+            var _jsondata_enc = "";
+            var _this_device = navigator.userAgent.toLowerCase();	//접속한 디바이스 환경
+            if(!chkEmpty(_this_device)) {
+                    
+                if (_this_device.match('android') != null) {
+                    _jsondata = {code: "getTokenData", url: ""};
+                    _jsondata_enc = encodeURIComponent(JSON.stringify(_jsondata));
+                    window.Android.web2app(_jsondata_enc);
+                    
+                }else if(_this_device.indexOf("iphone")>-1||_this_device.indexOf("ipad")>-1||_this_device.indexOf("ipod")>-1) {
+                    _jsondata = {code: "getTokenData", url: ""};
+                    _jsondata_enc = encodeURIComponent(JSON.stringify(_jsondata));
+                    window.location.href = "iphone://"+_jsondata_enc;
+                }
+            }
+        }
+        
+        
+        //토큰/앱버전 가져오기
+         function fnCmdSetToken(_appToken, _appVersion, _appSave, _pushyn){
+            
+            var _iosVersion = "3.3.2";
+            var _androidVersion = "3.1.0";
+            var _iosDownUrl = "https://campus.cj.net/static/appdeploy/gcampusPRD.plist";
+            var _androidDownUrl = "https://campus.cj.net/user/include/appdown.do";
+            
+            var _jsondata;
+            var _jsondata_enc = "";
+            var _this_device = navigator.userAgent.toLowerCase();	//접속한 디바이스 환경
+            var _this_deviceType = "";
+            
+            //생체인식 로그인 사용여부
+            if(!chkEmpty(_appSave) && _appSave == "Y"){
+                $("#bioSaveCheck").attr("checked", true);
+            }
+            
+            if(!chkEmpty(_this_device)) {
+                    
+                var _curAppVersion = parseInt(_appVersion.replace(/[^0-9]/g,""));
+                var _iosAppVersion = parseInt(_iosVersion.replace(/[^0-9]/g,""));
+                var _androidAppVersion = parseInt(_androidVersion.replace(/[^0-9]/g,""));
+                
+                if (_this_device.match('android') != null) {
+                    _this_deviceType = "ANDROID";
+                    if(_androidAppVersion > _curAppVersion){
+                        _jsondata = {code: "AppUpdateUrl", url: _androidDownUrl};
+                        _jsondata_enc = encodeURIComponent(JSON.stringify(_jsondata));
+                        window.Android.web2app(_jsondata_enc);
+                    }
+                    
+                }else if(_this_device.indexOf("iphone")>-1||_this_device.indexOf("ipad")>-1||_this_device.indexOf("ipod")>-1) {
+                    _this_deviceType = "IOS";
+                    if(_iosAppVersion > _curAppVersion){
+                        _jsondata = {code: "AppUpdateUrl", url: _iosDownUrl};
+                        _jsondata_enc = encodeURIComponent(JSON.stringify(_jsondata));
+                        window.location.href = "iphone://"+_jsondata_enc;
+                    }
+                }
+            }
+            $("#loginform #p_userToken").val(_appToken);
+            $("#loginform #p_userAppVer").val(_appVersion);
+            $("#loginform #p_userDevice").val(_this_deviceType);
+            $("#loginform #p_userPushyn").val(_pushyn);
+            
+        }
+        
+        //모바일 생체인식 로그인 정보
+        function fnCmdBiometric(){
+            
+            var _jsondata;
+            var _jsondata_enc = "";
+            var _this_device = navigator.userAgent.toLowerCase();	//접속한 디바이스 환경
+            if(!chkEmpty(_this_device)) {
+                if (_this_device.match('android') != null) {
+                    _jsondata = {code: "bio", url: "https://campus.cj.net"};
+                    _jsondata_enc = encodeURIComponent(JSON.stringify(_jsondata));
+                    window.Android.web2app(_jsondata_enc);
+                    
+                }else if(_this_device.indexOf("iphone")>-1||_this_device.indexOf("ipad")>-1||_this_device.indexOf("ipod")>-1) {
+                    
+                    _jsondata = {code: "bio", url: "https://campus.cj.net"};
+                    _jsondata_enc = encodeURIComponent(JSON.stringify(_jsondata));
+                    window.location.href = "iphone://"+_jsondata_enc;
+                    
+                } else {
+                    _jsondata = {code: "bio", url: "https://campus.cj.net"};
+                    _jsondata_enc = encodeURIComponent(JSON.stringify(_jsondata));
+                }
+            }else{
+                alert("디바이스 정보를 확인할 수 없습니다");
+                return false;
+            }
+        }
+        
+        function setCookie(cookieName, value, exdays){
+            var exdate = new Date();
+            exdate.setDate(exdate.getDate() + exdays);
+            var cookieValue = escape(value) + ((exdays==null) ? "" : "; expires=" + exdate.toGMTString());
+            document.cookie = cookieName + "=" + cookieValue;
+        }
+         
+        function deleteCookie(cookieName){
+            var expireDate = new Date();
+            expireDate.setDate(expireDate.getDate() - 1);
+            document.cookie = cookieName + "= " + "; expires=" + expireDate.toGMTString();
+        }
+         
+        function getCookie(cookieName) {
+            cookieName = cookieName + '=';
+            var cookieData = document.cookie;
+            var start = cookieData.indexOf(cookieName);
+            var cookieValue = '';
+            if(start != -1){
+                start += cookieName.length;
+                var end = cookieData.indexOf(';', start);
+                if(end == -1)end = cookieData.length;
+                cookieValue = cookieData.substring(start, end);
+            }
+            return unescape(cookieValue);
+        }
+        
+        //로그인
+        function whenLogin(){
+
+            //유효성 검사
+            if($("#p_login_id").val() == ""){
+                alert("아이디를 입력해주세요!\nPlease enter your ID.");
+                $("#p_login_id").focus();
+                return;
+            
+            }else if($("#p_pwd").val() == ""){
+                alert("비밀번호를 입력해주세요!\nEnter your password.");
+                $("#p_pwd").focus();
+                return;
+            }
+            
+            //생체인증 로그인 시
+            if($("#bioSaveCheck").is(":checked")){
+                
+                fnCmdBioLoginCheck();
+            }else{
+                $("#loginform").attr({
+                    action: "/userLoginExecute.do",
+                    method:"post",
+                    target:"_self"
+                    });
+                $("#loginform").submit();
+            }
+        }
+        
+        //비밀번호 찾기
+        function whenPwdSearch(){
+            
+            $("#loginform").attr({
+                action: "/userPwdSearch.do",
+                method:"post",
+                target:"_self"
+                });
+            $("#loginform").submit();
+            
+        }
+        
+        
+        //생체인증 요청
+        function fnCmdBioLoginCheck(){
+            
+            $.ajax({
+                url: "/userSSOLoginCheck.do",
+                method: "post",
+                cache:false,
+                async:false,
+                dataType:"json",
+                data:$("#loginform").serialize(),
+                success: function(result) {
+                    
+                    if(!chkEmpty(result)){
+                        
+                        if(!chkEmpty(result.p_resultMsg)){
+                            alert(result.p_resultMsg);
+                            return false;
+                            
+                        }else{
+                            //생체인증 로그인 시 앱 저장
+                            if($("#bioSaveCheck").is(":checked")){
+                                fnCmdBioCheck(result.p_encLoginId);
+                            }else{
+                                fnCmdBioCheck("");
+                            }
+                            setTimeout(function() {
+                                
+                                fnCmdBiometric();
+                            }, 1000);
+                        }
+                    }
+                    
+                },
+                error: function(){
+                    alert("검색 정보 데이터 로딩에 실패하였습니다. 다시 시도해 주시기 바랍니다.\nFailed To Load Search Information Data. Please Try Again.");
+                }
+            });
+        }
+        
+        //앱 저장
+        function fnCmdBioCheck(_login_id){
+
+            var _jsondata;
+            var _jsondata_enc = "";
+            var _this_device = navigator.userAgent.toLowerCase();	//접속한 디바이스 환경");
+            
+            if(!chkEmpty(_this_device)){
+                if (_this_device.match('android') != null) {
+                    _jsondata = {code: "saveKey", codevalue: _login_id, url: "https://campus.cj.net"};
+                    _jsondata_enc = encodeURIComponent(JSON.stringify(_jsondata))
+                    window.Android.web2app(_jsondata_enc)
+        
+                }else if(_this_device.indexOf("iphone")>-1||_this_device.indexOf("ipad")>-1||_this_device.indexOf("ipod")>-1) { 
+                        _jsondata = {code: "saveKey", codevalue: _login_id, url: "https://campus.cj.net"};
+                    _jsondata_enc = encodeURIComponent(JSON.stringify(_jsondata))
+                    window.location.href = "iphone://"+_jsondata_enc
+                    
+                } else {
+                    _jsondata = {code: "saveKey", codevalue: _login_id, url: "https://campus.cj.net"}; 
+                    _jsondata_enc = encodeURIComponent(JSON.stringify(_jsondata))
+                }
+            }
+        }
+        
+        //사용언어 변경
+        function changeLanguage(language){
+            location.href = "/setChangeLocale.do?p_fwdurl=/userLogin.do&l_locale=" + language;
+        }
+        
+        
+        </script>
+
+
+</body></html>
